@@ -1,0 +1,11 @@
+#prevents all installed
+# pacakages from being committed
+node_modules/
+
+#prevents secrets/database credentials from
+#being committed
+.env
+
+#prevents generated log files
+# from being commited
+logs/
