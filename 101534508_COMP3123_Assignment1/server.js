@@ -20,6 +20,8 @@ const SERVER_PORT = 3000;
 //it will let us create and save new user documents in MongoDb
 const User = require('./models/user'); //go up one folder
 
+//importing the user routs
+const userRoutes = require('./routes/user');
 
 //application obj is stored in app
 //initialize express applicstion
@@ -28,6 +30,10 @@ const User = require('./models/user'); //go up one folder
 const app = express();
 
 app.use(express.json());//middleware -allows express to read JSON data sent in request
+
+
+app.use('/api/v1/user', userRoutes);
+
 
 //defining an endpoint
 app.post('/api/v1/user/signup',async(req,res) =>{

@@ -39,3 +39,5 @@
 10. a datbase configuration file was created: congig/db.js. uses moongose to connect the application to MongoDB
 
 11. under user.js imported moongoose and defined a schema for a user
+
+12. installed bcrypt.hash() - hashes the test password
