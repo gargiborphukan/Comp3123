@@ -30,7 +30,7 @@ if (!user || !(await user.verifyPassword(password))){
     // return 401 for both user not found and wrong password but not disclosing it
     return res.status(401).json({
         success: false, 
-        messge: "Invalid username/email or password"
+        message: "Invalid username/email or password"
     });
 
 }
@@ -45,7 +45,7 @@ const payload = {
 
 //creating a JWT using the secret key form the .env file
 const token = jwt.sign(payload, process.env.JWT_SECRET,{
-    expiresIN: "1h"
+    expiresIn: "1h"
 }); //specify expiresIn for 1h
 
 
@@ -56,7 +56,7 @@ return res.status(200).json({
     message     : "Login successful",
     token,
     user        : {
-        id      : user_id,
+        id      : user._id,
         username: user.username,
         email   : user.email
     }

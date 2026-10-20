@@ -1,0 +1,15 @@
+$kind: http-request
+url: http://localhost:3000/api/v1/user/login
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"identifier\" : \"gargi_test3\",\r
+
+    \     \"password\" : \"TestPass1234!\"\r
+
+    \r
+
+    }"
+order: 3000

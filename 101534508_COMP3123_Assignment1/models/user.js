@@ -55,12 +55,13 @@ const userSchema = new mongoose.Schema({
 
 //hash password before saving
 //rund before mongoose saves a new/ updates user doc
-userSchema.pre('save',async function(next) {
+userSchema.pre('save',async function() {
     //checks whether the password is new/has been modified
     //if unchanged,skip hashing to avoid hashing an existing hash
-    if(!this.isModified('password')) return (next);
+    if(!this.isModified('password')) {
+        return;   //CORRECTED WITH AI
+    }
     this.password = await bcrypt.hash(this.password, SALT_ROUNDS);
-    next();
     //hashes the plain text password before it is stored in MongoDb
     //hashpasswd -if we hash an already-hashed password again during an unrelated
     //user update, the original password will no longer verify correctly.
